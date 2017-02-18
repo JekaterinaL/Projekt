@@ -1,9 +1,10 @@
 body {
-    background-color: powderblue;
+	background-color: powderblue;
+	text-align: center;
 }
-h1 {
-    color: blue;
+ul {
+  list-style-position: inside
 }
-p {
-    color: red;
+ol {
+  list-style-position: inside
 }
