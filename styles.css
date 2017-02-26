@@ -3,8 +3,17 @@ body {
 	text-align: center;
 }
 ul {
-  list-style-position: inside
+  list-style-position: inside;
 }
 ol {
-  list-style-position: inside
+  list-style-position: inside;
+}
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+table, td, th {
+	text-align: left;
 }
