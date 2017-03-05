@@ -2,6 +2,12 @@ body {
 	background-color: powderblue;
 	text-align: center;
 }
+div.color {
+	background-color: #ADD8E6;
+}
+#head1 {
+  color: #000080;
+}
 ul {
   list-style-position: inside;
 }
