@@ -1,0 +1,13 @@
+<?php if (!empty($puurid)):
+	foreach($puurid as $puur_id => $puur):
+?>
+	<div class="puur">
+		Puur <?php echo $puur_id; ?><br/>
+		<?php foreach($puur as $looma_id => $loom): ?>
+			<img src="<?php echo $loom['liik']; ?>">
+		<?php endforeach; ?>
+	</div>
+
+<?php endforeach;
+endif;
+?>
