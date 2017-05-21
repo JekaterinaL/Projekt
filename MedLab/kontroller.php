@@ -5,16 +5,13 @@ baasi_uhendus();
 
 require_once("views/head.html");
 
-if(!empty($_GET)){
-    $leht = $_GET['page'];
+if( isset($_GET['page']) && !empty($_GET['page']) ){
+    $leht = htmlspecialchars( $_GET['page'] );
 } else {
     $leht = "pealeht";
 }
 
 switch($leht){
-	case "pealeht":
-	require_once("views/pealeht.html");
-	break;
 	
 	case "analuusid":
 		kuva_analuusid();
@@ -25,11 +22,19 @@ switch($leht){
 	break;
 	
 	case "sisestamine":
-	require_once("views/sisestamine.html");
+		sisesta();
 	break;
 		
 	case "login":
-	require_once("views/login.html");
+		logi();
+	break;
+	
+	case "logout":
+		logout();
+	break;
+	
+	default:
+		include_once('views/pealeht.html');
 	break;
 }
 

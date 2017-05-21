@@ -1,9 +1,46 @@
-<?php
-require_once("views/head.html");
-?>
 <div id="wrap">
 	<h3>Uute analüüside sisestamine</h3>
+	
+	<form action="?page=sisestamine" method="POST">
+		<fieldset>
+			<legend>Uute analüüside sisestamiseks tuleb täita kõik väljad</legend>
+			Valdkond: <select name="vk">
+				<option value="KLIINILISE KEEMIA UURINGUD">KLIINILISE KEEMIA UURINGUD</option>
+				<option value="HEMATOLOOGILISED UURINGUD">HEMATOLOOGILISED UURINGUD</option>
+				<option value="HÜÜBIMISSÜSTEEMI UURINGUD">HÜÜBIMISSÜSTEEMI UURINGUD</option>
+				<option value="IMMUNOHEMATOLOOGILISED UURINGUD">IMMUNOHEMATOLOOGILISED UURINGUD</option>
+				<option value="IMMUUNUURINGUD">IMMUUNUURINGUD</option>
+				<option value="AUTOIMMUUNUURINGUD">AUTOIMMUUNUURINGUD</option>
+				<option value="NAKKUSHAIGUSTE DIAGNOSTIKA">NAKKUSHAIGUSTE DIAGNOSTIKA</option>
+			</select><br/>
+			Analüüsi nimetus: <input type="text" name="an" placeholder="Analüüt" /><br/>
+			Analüüsi lühend: <input type="text" name="luhend" placeholder="Lühend" /><br/>
+			Proovinõu (korgivärv): <select name="pn">
+				<option value="hall">hall</option>
+				<option value="kollane">kollane</option>
+				<option value="lilla">lilla</option>
+				<option value="roheline">roheline</option>
+				<option value="sinine">sinine</option>
+			</select><br/>
+			Proovimaterjal: <select name="pm">
+				<option value="Paastuplasma">Paastuplasma</option>
+				<option value="Paastuseerum">Paastuseerum</option>
+				<option value="Plasma">Plasma</option>
+				<option value="Seerum">Seerum</option>
+				<option value="Täisveri">Täisveri</option>
+				<option value="Veri">Veri</option>
+			</select><br/>
+			Uuritava materjali säilitamise tingimused: <textarea name="sailivus" placeholder="Toatemperatuuril ... või 2 – 8°C ..." rows="1" cols="50"></textarea><br/>
+			Analüüsi haigekassa kood: <input type="number" name="hk" placeholder="66100" min="66100" max="66720" /><br/>
+			Viide analüüsi kodulehele: <input type="text" name="aadress" placeholder="https://synlab.ee/" /><br/> <!-- type="url" -->
+		</fieldset>
+		<input type="submit" value="Lisa">
+	</form>
+	
+	<?php if (isset($errors)):?>
+		<?php foreach($errors as $error):?>
+			<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
+		<?php endforeach;?>
+	<?php endif;?>
+
 </div>
-<?php
-require_once("views/foot.html");
-?>
