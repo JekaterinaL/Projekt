@@ -1,16 +1,15 @@
 <div id="wrap">
 	<h3>Sisselogimine</h3>
-
-	<form action="?page=login" method="POST">
-	<input class="logi" type="text" placeholder="kasutajanimi" name="username"/><br/>
-	<input class="logi" type="password" placeholder="parool" name="passwd"/><br/>
-	<input type="submit" value="Logi sisse"/>
-	</form>
-
+	
 	<?php if (isset($errors)):?>
 		<?php foreach($errors as $error):?>
 			<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
 		<?php endforeach;?>
 	<?php endif;?>
-
+	
+	<form action="?page=login" method="POST">
+	<input class="logi" type="text" placeholder="kasutajanimi" name="username"/><br/>
+	<input class="logi" type="password" placeholder="parool" name="passwd"/><br/>
+	<input type="submit" value="Logi sisse"/>
+	</form>
 </div>

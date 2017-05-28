@@ -2,6 +2,7 @@
 
 	<h3>Analüüside koontabel</h3>
 	
+	<!-- Tabeli pealkirjade kuvamine -->
 	<?php if (!empty($valdkonnad)):
 	foreach($valdkonnad as $id_vk => $valdkond):
 	?>
@@ -17,6 +18,7 @@
 		</tr>
 	</table>
 		
+		<!-- Tabeli sisu kuvamine -->
 		<?php foreach($valdkond as $id => $analuut): ?>
 		<table id="table">
 			<tr>

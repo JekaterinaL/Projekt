@@ -1,0 +1,46 @@
+<div id="wrap">
+	<h3>Uute analüüside sisestamine</h3>
+	
+	<form action="?page=sisestamine" method="POST">
+	
+		<p><?php if (isset($errors)):?>
+			<?php foreach($errors as $error):?>
+				<div style="color:red;"><?php echo htmlspecialchars($error); ?></div>
+			<?php endforeach;?>
+		<?php endif;?></p>
+		
+		<fieldset>
+			<legend>Uute analüüside sisestamiseks tuleb täita kõik väljad</legend>
+			Valdkond: <select name="vk">
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="KLIINILISE KEEMIA UURINGUD") echo "selected"; ?> >KLIINILISE KEEMIA UURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="HEMATOLOOGILISED UURINGUD") echo "selected"; ?>>HEMATOLOOGILISED UURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="HÜÜBIMISSÜSTEEMI UURINGUD") echo "selected"; ?>>HÜÜBIMISSÜSTEEMI UURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="IMMUNOHEMATOLOOGILISED UURINGUD") echo "selected"; ?>>IMMUNOHEMATOLOOGILISED UURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="IMMUUNUURINGUD") echo "selected"; ?>>IMMUUNUURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="AUTOIMMUUNUURINGUD") echo "selected"; ?>>AUTOIMMUUNUURINGUD</option>
+				<option <?php if (!empty($_POST['vk']) && $_POST['vk']=="NAKKUSHAIGUSTE DIAGNOSTIKA") echo "selected"; ?>>NAKKUSHAIGUSTE DIAGNOSTIKA</option>
+			</select><br/>
+			Analüüsi nimetus: <input type="text" name="an" placeholder="Analüüt" <?php if( !empty($_POST['an']) ) echo "value=\"".htmlspecialchars($_POST['an'])."\""; ?> /><br/>
+			Analüüsi lühend: <input type="text" name="luhend" placeholder="Lühend" <?php if( !empty($_POST['luhend']) ) echo "value=\"".htmlspecialchars($_POST['luhend'])."\""; ?> /><br/>
+			Proovinõu (korgivärv): <select name="pn">
+				<option <?php if (!empty($_POST['pn']) && $_POST['pn']=="hall") echo "selected"; ?> >hall</option>
+				<option <?php if (!empty($_POST['pn']) && $_POST['pn']=="kollane") echo "selected"; ?> >kollane</option>
+				<option <?php if (!empty($_POST['pn']) && $_POST['pn']=="lilla") echo "selected"; ?> >lilla</option>
+				<option <?php if (!empty($_POST['pn']) && $_POST['pn']=="roheline") echo "selected"; ?> >roheline</option>
+				<option <?php if (!empty($_POST['pn']) && $_POST['pn']=="sinine") echo "selected"; ?> >sinine</option>
+			</select><br/>
+			Proovimaterjal: <select name="pm">
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Paastuplasma") echo "selected"; ?> >Paastuplasma</option>
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Paastuseerum") echo "selected"; ?> >Paastuseerum</option>
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Plasma") echo "selected"; ?> >Plasma</option>
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Seerum") echo "selected"; ?> >Seerum</option>
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Täisveri") echo "selected"; ?> >Täisveri</option>
+				<option <?php if (!empty($_POST['pm']) && $_POST['pm']=="Veri") echo "selected"; ?> >Veri</option>
+			</select><br/>
+			Uuritava materjali säilitamise tingimused: <textarea name="sailivus" placeholder="Toatemperatuuril ... või 2 – 8°C ..." rows="1" cols="50" ><?php if( !empty($_POST['sailivus']) ) echo htmlspecialchars($_POST['sailivus']); ?></textarea><br/>
+			Analüüsi haigekassa kood: <input type="number" name="hk" placeholder="66100" min="66100" max="66720" <?php if( !empty($_POST['hk']) ) echo "value=\"".htmlspecialchars($_POST['hk'])."\""; ?>/><br/>
+			Viide analüüsi kodulehele: <input type="text" name="aadress" placeholder="https://synlab.ee/" <?php if( !empty($_POST['aadress']) ) echo "value=\"".htmlspecialchars($_POST['aadress'])."\""; ?>/><br/>
+		</fieldset>
+		<input type="submit" value="Lisa">
+	</form>
+</div>

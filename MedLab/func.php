@@ -26,7 +26,7 @@ function kuva_analuusid(){
 			$valdkonnad[$rida_vk['vk']][] = $analuusid;
 		}
 	}
-	include_once("views/analuusid.html");
+	include_once("views/nimekiri.html");
 }
 
 function kuva_vaakumkatsutid(){
@@ -37,7 +37,7 @@ function kuva_vaakumkatsutid(){
 	while($rida = mysqli_fetch_assoc($result)){
 		$vaakumkatsutid[] = $rida;
 	}
-	include_once("views/vaakumkatsutid.html");
+	include_once("views/proovinoud.html");
 }
 
 function logi(){
@@ -59,7 +59,7 @@ function logi(){
 					if ($result && $user = mysqli_fetch_assoc($result)){
 						$_SESSION['username'] = $_POST['username'];
 						header("Location: ?page=pealeht");
-						// exit(0);
+						
 					} else {
 						$errors = array();
 						$errors[] = "Login luhtus, kas oli õige info?";
@@ -94,15 +94,15 @@ function sisesta(){
 			
 			$errors = array();
 			if ($_POST['vk'] == "") {
-				$errors[] = "Valdkond on valimata!"; //on vaja tühja välja sisestamisel
+				$errors[] = "Valdkond on valimata!";
 			} elseif ($_POST['an'] == ""){
 				$errors[] = "Analüüsi nimetus on sisestamata!";
 			} elseif ($_POST['luhend'] == ""){
 				$errors[] = "Analüüsi lühend on sisestamata!";
 			} elseif ($_POST['pn'] == ""){
-				$errors[] = "Proovinõu korgivärv on valimata!"; //on vaja tühja välja sisestamisel
+				$errors[] = "Proovinõu korgivärv on valimata!";
 			} elseif ($_POST['pm'] == ""){
-				$errors[] = "Proovimaterjal on valimata!"; //on vaja tühja välja sisestamisel
+				$errors[] = "Proovimaterjal on valimata!";
 			} elseif ($_POST['sailivus'] == ""){
 				$errors[] = "Uuritava materjali säilitamise tingimused on sisestamata!";
 			} elseif ($_POST['hk'] == ""){
@@ -123,7 +123,7 @@ function sisesta(){
 				$sql = "INSERT INTO 10163487_analuusid (id, vk, an, luhend, pn_i, pn_t, pm, sailivus, hk, aadress) VALUES (NULL, '$vk', '$an', '$luhend', 'img/$pn.jpg', 'thumb/$pn.jpg', '$pm', '$sailivus', '$hk', '$aadress')";
 				
 				if (mysqli_query($link, $sql)) {
-					header("Location: ?page=analuusid");
+					header("Location: ?page=nimekiri");
 				} else {
 					echo "Error: " . $sql . "<br>" . mysqli_error($link);
 				}
@@ -131,7 +131,7 @@ function sisesta(){
 		}
 	}
 
-	include_once('views/sisestamine.html');
+	include_once('views/vorm.html');
 }
 
 ?>
