@@ -6,7 +6,7 @@ baasi_uhendus();
 require_once("views/head.html");
 
 if( isset($_GET['page']) && !empty($_GET['page']) ){
-    $leht = htmlspecialchars( $_GET['page'] );
+    $leht = htmlspecialchars($_GET['page']);
 } else {
     $leht = "pealeht";
 }

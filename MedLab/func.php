@@ -19,8 +19,8 @@ function kuva_analuusid(){
 	$result_vk = mysqli_query($link, $sql_vk) or die( $sql_vk. " - ". mysqli_error($link) );
 	while($rida_vk = mysqli_fetch_assoc($result_vk)){
 		//Analüüside kuvamiseks
-		//http://stackoverflow.com/questions/23712858/how-to-insert-a-double-quotes-in-a-variable-in-php
-		$sql = "SELECT * FROM 10163487_analuusid WHERE vk = '{$rida_vk['vk']}' ORDER BY an";
+		$vk = mysqli_real_escape_string($link, $rida_vk['vk']);
+		$sql = "SELECT * FROM 10163487_analuusid WHERE vk = '$vk' ORDER BY an";
 		$result = mysqli_query($link, $sql) or die ( $sql. " - ". mysqli_error($link) );
 		while($analuusid = mysqli_fetch_assoc($result)){
 			$valdkonnad[$rida_vk['vk']][] = $analuusid;

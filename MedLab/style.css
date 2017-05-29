@@ -4,16 +4,41 @@ body {
 	font-family: 'Roboto', sans-serif;
 	}
 	
-#table {
+.table {
     border-bottom-style: solid;
 	border-bottom-color: rgba(123, 178, 226, 0.8);
 	border-spacing: 0;
 	display: inline-table;
 }
 
-#table:hover {
+.table:hover {
 	background: rgba(123, 178, 226, 0.42);
 	border-color: rgba(123, 178, 226, 0.42);
+}
+
+td.vk {
+	width: 260px;
+}
+
+td.luhend {
+	width: 100px;
+}
+
+td.pm {
+	width: 120px;
+}
+
+td.pn {
+	width: 80px;
+}
+
+td.sailivus {
+	width: 340px;
+}
+
+td.hk {
+	width: 70px;
+	text-align: right;
 }
 
 #header, #wrap {
@@ -83,13 +108,13 @@ form p {
 	height: 100%;
 }
 
-#popup-wrapper{
+.popup-wrapper{
 	width: 120px;
 	margin: 70px auto;
 	text-align: center;
 }
 
-#popup-container{
+.popup-container{
 	background-color: #FFF;
 	padding: 20px;
 	border-radius: 4px;

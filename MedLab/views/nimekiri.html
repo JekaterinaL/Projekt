@@ -7,27 +7,27 @@
 	foreach($valdkonnad as $id_vk => $valdkond):
 	?>
 	<p>&nbsp;</p>
-	<table id="table">
+	<table class="table">
 		<tr>
-			<td width="250"><b><?php echo $id_vk;?></b></td>
-			<td width="100"><b>Lühend</b></td>
-			<td width="100"><b>Uuritav materjal</b></td>
-			<td width="80"><b>Proovinõu</b></td>
-			<td width="340"><b>Uuritava materjali säilitamine</b></td>
-			<td width="80"><b>HK Kood</b></td>
+			<td class="vk"><b><?php echo $id_vk;?></b></td>
+			<td class="luhend"><b>Lühend</b></td>
+			<td class="pm"><b>Uuritav materjal</b></td>
+			<td class="pn"><b>Proovinõu</b></td>
+			<td class="sailivus"><b>Uuritava materjali säilitamine</b></td>
+			<td class="hk"><b>HK Kood</b></td>
 		</tr>
 	</table>
 		
 		<!-- Tabeli sisu kuvamine -->
 		<?php foreach($valdkond as $id => $analuut): ?>
-		<table id="table">
+		<table class="table">
 			<tr>
-				<td width="250"><a href="<?php echo $analuut['aadress'];?>"><?php echo $analuut['an'];?></a></td>
-				<td width="100"><?php echo $analuut['luhend'];?></td>
-				<td width="100"><?php echo $analuut['pm'];?></td>
-				<td width="80"><a href="?page=vaakumkatsutid"><img src = "<?php echo $analuut['pn_t'];?>" alt="<?php echo $analuut['an'];?>" width="50%" height="50%"></a></td>
-				<td width="340"><?php echo $analuut['sailivus'];?></td>
-				<td width="80"><?php echo $analuut['hk'];?></td><br/>
+				<td class="vk"><a href="<?php echo $analuut['aadress'];?>"><?php echo $analuut['an'];?></a></td>
+				<td class="luhend"><?php echo $analuut['luhend'];?></td>
+				<td class="pm"><?php echo $analuut['pm'];?></td>
+				<td class="pn"><a href="?page=vaakumkatsutid"><img src = "<?php echo $analuut['pn_t'];?>" alt="<?php echo $analuut['an'];?>" width="40" height="50"></a></td>
+				<td class="sailivus"><?php echo $analuut['sailivus'];?></td>
+				<td class="hk"><?php echo $analuut['hk'];?></td>
 			</tr>
 		</table>
 		<?php endforeach; ?>
