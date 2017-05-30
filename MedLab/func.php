@@ -109,6 +109,8 @@ function sisesta(){
 				$errors[] = "Haigekassa kood on sisestamata!";
 			} elseif ($_POST['aadress'] == ""){
 				$errors[] = "Viide analüüsi kodulehele on sisestamata!";
+			} elseif (strpos ($_POST['aadress'], "synlab") === false){
+				$errors[] = "Koduleht peab olema rangelt Synlabi oma!";
 			
 			} else {
 				$vk = mysqli_real_escape_string($link, $_POST['vk']);
@@ -123,7 +125,7 @@ function sisesta(){
 				$sql = "INSERT INTO 10163487_analuusid (id, vk, an, luhend, pn_i, pn_t, pm, sailivus, hk, aadress) VALUES (NULL, '$vk', '$an', '$luhend', 'img/$pn.jpg', 'thumb/$pn.jpg', '$pm', '$sailivus', '$hk', '$aadress')";
 				
 				if (mysqli_query($link, $sql)) {
-					header("Location: ?page=nimekiri");
+					header("Location: ?page=analuusid");
 				} else {
 					echo "Error: " . $sql . "<br>" . mysqli_error($link);
 				}
